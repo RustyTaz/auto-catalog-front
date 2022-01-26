@@ -1,0 +1,45 @@
+p {
+  text-align: center;
+  margin: 0;
+}
+
+input {
+  cursor: pointer;
+}
+
+.title {
+  font-size: 25px;
+  font-weight: bold;
+  &-catalog-item {
+    font-weight: bold;
+    margin: 0 0 10px;
+  }
+}
+
+.main {
+  padding-left: 5%;
+  display: flex;
+  &__checkbox {
+    width: 15%;
+    &-item {
+      display: block;
+      padding-bottom: 5px;
+    }
+    &-title {
+      text-align: left;
+      font-weight: bold;
+      font-size: 17px;
+      padding: 30px 0 20px;
+    }
+  }
+  &__catalog {
+    display: flex;
+    flex-wrap: wrap;
+    width: 85%;
+    &-item__text {
+      display: flex;
+      justify-content: center;
+      padding-top: 10px;
+    }
+  }
+}

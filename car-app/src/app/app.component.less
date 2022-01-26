@@ -1,15 +1,47 @@
+@orange: #FF4A32;
+
 a {
   padding-left: 20px;
   color: black;
   text-decoration: none;
 }
 
+ul {
+  list-style: none;
+}
+
+li {
+  padding-bottom: 5px;
+}
+
 .header {
   display: flex;
   padding: 10px 0 10px;
   flex-wrap: wrap;
-  .header__item {
+  &__item {
     padding-top: 10px;
+  }
+}
+
+.footer {
+  padding: 40px;
+  display: flex;
+  height: 234px;
+  width: auto;
+  &__item {
+    width: 33%;
+    &-title {
+      padding-bottom: 10px;
+      font-weight: bold;
+      font-size: 17px;
+    }
+  }
+}
+
+.footer__item-copyright {
+  margin: 20% 0 16px;
+  &__orange {
+    color: @orange;
   }
 }
 
