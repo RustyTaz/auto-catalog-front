@@ -1,0 +1,91 @@
+body{
+  font-family: Roboto, serif;
+}
+.navigation__bar{
+  background: #C6C6C6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 81px;
+  &__button{
+    font-family: Roboto;
+    font-size: 18px;
+    font-weight: bolder;
+    background: inherit;
+    height: 25%;
+    border: none;
+    margin-left: 20px;
+  }
+}
+input[type=radio] {
+  display: none;
+}
+#overflow{ /*сркывает все, что находится за пределами этого блока*/
+  width: 100%;
+  overflow: hidden;
+}
+#slider .image{ /*устанавливает общий размер блока с изображениями*/
+  width: 400%;
+}
+#slider article{ /*все изображения справа друг от доруга*/
+  width: 25%;
+  float: left;
+}
+.firm-history{
+  display: flex;
+}
+.firm-history p {
+  font-size: 18px;
+}
+.logo{
+  background: black;
+  height: 81px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.logo p {
+  font-size: 38px;
+  color:white;
+  margin-right: 5px;
+}
+
+.logo img:nth-of-type(1){
+  margin-top: 10px;
+}
+
+
+
+/*позиция изображения при активации переключателя*/
+#button-1:checked ~ #slider #overflow .image{
+  margin-left: 0;
+}
+
+#button-2:checked ~ #slider #overflow .image{
+  margin-left: -100%;
+}
+
+#button-3:checked ~ #slider #overflow .image{
+  margin-left: -200%;
+}
+
+#button-4:checked ~ #slider #overflow .image{
+  margin-left: -300%;
+}
+#button-1:focus{
+  color: white;
+}
+#button-2:focus{
+  color: white;
+}
+#button-3:focus{
+  color: white;
+}
+#button-4:focus{
+  color: white;
+}
+
+#slider .image{ /*анимация пролистывания изображений*/
+  transition: all 800ms cubic-bezier(0.770, 0.000, 0.175, 1.000);
+}
