@@ -1,1 +1,135 @@
-<p>Новости епта</p>
+
+<main class="news news__columns"  >
+  <section class="news__column main-column">
+    <a class="news__article first-article" href="{{newsDisplay[0].url}}" target="_blank">
+      <figure class="article-image">
+        <img src="{{newsDisplay[0].urlToImage}}" alt="">
+      </figure>
+      <div class="article-body">
+        <h2 class="article-title">
+          {{newsDisplay[0].title}}
+        </h2>
+        <p class="article-content">
+          {{newsDisplay[0].description}}
+        </p>
+        <footer class="article-info">
+          <span>{{newsDisplay[0].author}}</span>
+          <span>{{newsDisplay[0].publishedAt}}</span>
+        </footer>
+      </div>
+    </a>
+
+    <div class="news__columns">
+      <div class="news__column nested-column">
+        <a class="news__article" href="{{newsDisplay[1].url}}" target="_blank">
+          <figure class="article-image big-img">
+            <img src="{{newsDisplay[1].urlToImage}}" alt="">
+          </figure>
+          <div class="article-body">
+            <h2 class="article-title">
+              {{newsDisplay[1].title}}
+            </h2>
+            <p class="article-content">
+              {{newsDisplay[1].description}}
+            </p>
+            <footer class="article-info">
+              <span>{{newsDisplay[1].author}}</span>
+              <span>{{newsDisplay[1].publishedAt}}</span>
+            </footer>
+          </div>
+        </a>
+        <a class="news__article" href="{{newsDisplay[6].url}}" target="_blank">
+          <figure class="article-image big-img">
+            <img src="{{newsDisplay[6].urlToImage}}" alt="">
+          </figure>
+          <div class="article-body">
+            <h2 class="article-title">
+              {{newsDisplay[6].title}}
+            </h2>
+            <p class="article-content">
+              {{newsDisplay[6].description}}
+            </p>
+            <footer class="article-info">
+              <span>{{newsDisplay[6].author}}</span>
+              <span>{{newsDisplay[6].publishedAt}}</span>
+            </footer>
+          </div>
+        </a>
+      </div>
+
+      <div class="news__column">
+        <a class="news__article" href="{{newsDisplay[2].url}}" target="_blank">
+          <figure class="article-image big-img">
+            <img src="{{newsDisplay[2].urlToImage}}" alt="">
+          </figure>
+          <div class="article-body">
+            <h2 class="article-title">
+              {{newsDisplay[2].title}}
+            </h2>
+            <p class="article-content">
+              {{newsDisplay[2].description}}
+            </p>
+            <footer class="article-info">
+              <span>{{newsDisplay[2].author}}</span>
+              <span>{{newsDisplay[2].publishedAt}}</span>
+            </footer>
+          </div>
+        </a>
+        <a class="news__article" href="{{newsDisplay[3].url}}" target="_blank">
+          <figure class="article-image big-img">
+            <img src="{{newsDisplay[3].urlToImage}}" alt="">
+          </figure>
+          <div class="article-body">
+            <h2 class="article-title">
+              {{newsDisplay[3].title}}
+            </h2>
+            <p class="article-content">
+              {{newsDisplay[3].description}}
+            </p>
+            <footer class="article-info">
+              <span>{{newsDisplay[3].author}}</span>
+              <span>{{newsDisplay[3].publishedAt}}</span>
+            </footer>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="news__column">
+    <a class="news__article" href="{{newsDisplay[4].url}}" target="_blank">
+      <figure class="article-image small-img">
+        <img src="{{newsDisplay[4].urlToImage}}" alt="">
+      </figure>
+      <div class="article-body">
+        <h2 class="article-title">
+          {{newsDisplay[4].title}}
+        </h2>
+        <p class="article-content">
+          {{newsDisplay[4].description}}
+        </p>
+        <footer class="article-info">
+          <span>{{newsDisplay[4].author}}</span>
+          <span>{{newsDisplay[4].publishedAt}}</span>
+        </footer>
+      </div>
+    </a>
+    <a class="news__article" href="{{newsDisplay[5].url}}" target="_blank">
+      <figure class="article-image small-img">
+        <img src="{{newsDisplay[5].urlToImage}}" alt="">
+      </figure>
+      <div class="article-body">
+        <h2 class="article-title">
+          {{newsDisplay[5].title}}
+        </h2>
+        <p class="article-content">
+          {{newsDisplay[5].description}}
+        </p>
+        <footer class="article-info">
+          <span>{{newsDisplay[5].author}}</span>
+          <span>{{newsDisplay[5].publishedAt}}</span>
+        </footer>
+      </div>
+    </a>
+  </section>
+</main>

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {NewsApiService} from "../../services/news-api.service";
 
 @Component({
   selector: 'app-news-page',
@@ -6,10 +7,18 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./news-page.component.less']
 })
 export class NewsPageComponent implements OnInit {
+  newsDisplay:any[]=[];
 
-  constructor() { }
+  constructor(private apiService: NewsApiService ) {}
 
   ngOnInit(): void {
+    this.apiService.getNews().subscribe((result)=>{
+      console.log(result);
+      this.newsDisplay=result.articles;
+
+
+    });
+
   }
 
 }

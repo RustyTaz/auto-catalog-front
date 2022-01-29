@@ -15,6 +15,10 @@ import {MainModule} from "./main/main.module";
 import {NewsModule} from "./news/news.module";
 import {NewsPageComponent} from "./news/news-page/news-page.component";
 
+import {HttpClientModule} from "@angular/common/http";
+import {NewsApiService} from "./services/news-api.service";
+
+
 
 const routes =[
   { path:'', component: MainPageComponent},
@@ -34,9 +38,11 @@ const routes =[
     CatalogModule,
     HistoryModule,
     MainModule,
-    NewsModule
+    NewsModule,
+    HttpClientModule,
+
   ],
-  providers: [],
+  providers: [NewsApiService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
