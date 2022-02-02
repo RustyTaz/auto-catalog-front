@@ -3,75 +3,50 @@
   <div class="main__checkbox">
     <p class="main__checkbox-title">Название бренда</p>
     <label class="main__checkbox-item">
-      <input type="checkbox">
+      <input type="checkbox" (change)="choiceBrand(1)">
       BMW
     </label>
     <label class="main__checkbox-item">
-      <input type="checkbox">
+      <input type="checkbox" (change)="choiceBrand(2)">
       Mercedes-Benz
     </label>
     <label class="main__checkbox-item">
-      <input type="checkbox">
+      <input type="checkbox" (change)="choiceBrand(3)">
       Lexus
     </label>
     <label class="main__checkbox-item">
-      <input type="checkbox">
+      <input type="checkbox" (change)="choiceBrand(4)">
       Audi
     </label>
     <p class="main__checkbox-title">Предельная скорость</p>
     <label class="main__checkbox-item">
-      <input type="checkbox">
-      120 км/ч
+      <input type="checkbox" (change)="choiceMaxSpeed(1)">
+      <201 км/ч
     </label>
     <label class="main__checkbox-item">
-      <input type="checkbox">
-      130 км/ч
+      <input type="checkbox" (change)="choiceMaxSpeed(2)">
+      201-220 км/ч
     </label>
     <label class="main__checkbox-item">
-      <input type="checkbox">
-      140 км/ч
+      <input type="checkbox" (change)="choiceMaxSpeed(3)">
+      221-240 км/ч
     </label>
     <label class="main__checkbox-item">
-      <input type="checkbox">
-      150 км/ч
+      <input type="checkbox" (change)="choiceMaxSpeed(4)">
+      >240 км/ч
     </label>
   </div>
   <div class="main__catalog">
-    <div class="main__catalog-item">
-      <img src="assets/catalog-car.png" alt="Автомобиль каталога">
-      <p class="title-catalog-item">BMW X4</p>
-      <p>Предельная скорость 130 км/ч</p>
-      <div class="main__catalog-item__text">
-        <img src="assets/allow-right.png" alt="Стрелка вправо">
-        <p>Подробнее о модели</p>
+    <ng-container *ngFor="let car of cars">
+      <div class="main__catalog-item" *ngIf="checkMaxSpeed(car.max_speed)&&checkBrand(car.model)">
+        <img src="assets/catalog-car.png" alt="Автомобиль каталога">
+        <p class="title-catalog-item">{{car.model}}</p>
+        <p>Предельная скорость {{car.max_speed}} км/ч</p>
+        <div class="main__catalog-item__text">
+          <img src="assets/allow-right.png" alt="Стрелка вправо">
+          <p>Подробнее о модели</p>
+        </div>
       </div>
-    </div>
-    <div class="main__catalog-item">
-      <img src="assets/catalog-car.png" alt="Автомобиль каталога">
-      <p class="title-catalog-item">BMW X4</p>
-      <p>Предельная скорость 130 км/ч</p>
-      <div class="main__catalog-item__text">
-        <img src="assets/allow-right.png" alt="Стрелка вправо">
-        <p>Подробнее о модели</p>
-      </div>
-    </div>
-    <div class="main__catalog-item">
-      <img src="assets/catalog-car.png" alt="Автомобиль каталога">
-      <p class="title-catalog-item">BMW X4</p>
-      <p>Предельная скорость 130 км/ч</p>
-      <div class="main__catalog-item__text">
-        <img src="assets/allow-right.png" alt="Стрелка вправо">
-        <p>Подробнее о модели</p>
-      </div>
-    </div>
-    <div class="main__catalog-item">
-      <img src="assets/catalog-car.png" alt="Автомобиль каталога">
-      <p class="title-catalog-item">BMW X4</p>
-      <p>Предельная скорость 130 км/ч</p>
-      <div class="main__catalog-item__text">
-        <img src="assets/allow-right.png" alt="Стрелка вправо">
-        <p>Подробнее о модели</p>
-      </div>
-    </div>
+    </ng-container>
   </div>
 </div>
