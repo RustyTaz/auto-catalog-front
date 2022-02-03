@@ -20,7 +20,6 @@ export class CatalogPageComponent implements OnInit {
     this.httpService.getAllCars().subscribe(data => {
       this.cars = data;
     });
-    console.log(this.cars);
   }
 
   choiceBrand(value: number) {

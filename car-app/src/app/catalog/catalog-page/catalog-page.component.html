@@ -39,7 +39,7 @@
   <div class="main__catalog">
     <ng-container *ngFor="let car of cars">
       <div class="main__catalog-item" *ngIf="checkMaxSpeed(car.max_speed)&&checkBrand(car.model)">
-        <img src="assets/catalog-car.png" alt="Автомобиль каталога">
+        <img class="main__catalog-item__img" src="assets/{{car.model}}.jpg" alt="Автомобиль каталога">
         <p class="title-catalog-item">{{car.model}}</p>
         <p>Предельная скорость {{car.max_speed}} км/ч</p>
         <div class="main__catalog-item__text">

@@ -17,6 +17,8 @@ import {NewsPageComponent} from "./news/news-page/news-page.component";
 
 import {HttpClientModule} from "@angular/common/http";
 import {NewsApiService} from "./services/news-api.service";
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatDialogModule} from "@angular/material/dialog";
 
 
 
@@ -40,6 +42,8 @@ const routes =[
     MainModule,
     NewsModule,
     HttpClientModule,
+    BrowserAnimationsModule,
+    MatDialogModule
 
   ],
   providers: [NewsApiService],

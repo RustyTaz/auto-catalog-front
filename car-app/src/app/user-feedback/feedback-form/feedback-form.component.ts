@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {MatDialogRef} from "@angular/material/dialog";
 
 @Component({
   selector: 'app-feedback-form',
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FeedbackFormComponent implements OnInit {
 
-  constructor() { }
+  constructor(public dialogRef: MatDialogRef<FeedbackFormComponent>) { }
 
   ngOnInit(): void {
+  }
+
+  onClose(): void {
+    this.dialogRef.close();
   }
 
 }
