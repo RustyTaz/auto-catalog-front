@@ -1,0 +1,12 @@
+<p class="title">{{car.model}}</p>
+<div class="info">
+  <div class="info__text">
+    <p>Предельная скорость: {{car.max_speed}} км/ч</p>
+    <p>Мощность двигателя: {{car.horse_power}} л.с.</p>
+    <p>Разгон с 0 до 100 км/ч: {{car.acceleration}} с</p>
+    <p>Наличие полного привода (AWD): {{car.awd ? "есть" : "нет"}}</p>
+  </div>
+  <div class="info__img">
+    <img src="./assets/{{car.model}}.jpg" alt="Выбранный автомобиль">
+  </div>
+</div>
