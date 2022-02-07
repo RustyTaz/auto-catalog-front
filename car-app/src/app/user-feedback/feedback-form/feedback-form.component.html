@@ -3,11 +3,35 @@
     <p>Обратная связь</p>
     <input class="feedback-form__title-close" type="image" src="assets/close.png" (click)="onClose()">
   </div>
-  <form>
-    <p><input class="feedback-form__item" type="text" placeholder="Фамилия" required></p>
-    <p><input class="feedback-form__item" type="text" placeholder="Имя" required></p>
-    <p><input class="feedback-form__item" type="text" placeholder="Телефон" required></p>
-    <p><input class="feedback-form__item" type="email" placeholder="Почта" required></p>
-    <p><input class="feedback-form__btn" type="submit" value="Отправить"></p>
+  <form [formGroup]="feedbackForm" novalidate>
+    <p><input [(ngModel)]="guest.surname" class="feedback-form__item" type="text" formControlName="lastname" placeholder="Фамилия"></p>
+    <div *ngIf="_lastname?.invalid && (_lastname?.touched || _lastname?.dirty)" class="feedback-form__error">
+      <span *ngIf="_lastname?.errors?.required">Обязательное поле</span>
+      <span *ngIf="_lastname?.errors?.pattern">
+        Фамилия должна начинаться с заглавной буквы и состоять из 3-15 символов кириллицы
+      </span>
+    </div>
+    <p><input [(ngModel)]="guest.name" class="feedback-form__item" type="text" formControlName="firstname" placeholder="Имя"></p>
+    <div *ngIf="_firstname?.invalid && (_firstname?.touched || _firstname?.dirty)" class="feedback-form__error">
+      <span *ngIf="_firstname?.errors?.required">Обязательное поле</span>
+      <span *ngIf="_firstname?.errors?.pattern">
+        Имя должно начинаться с заглавной буквы и состоять из 2-15 символов кириллицы
+      </span>
+    </div>
+    <p><input [(ngModel)]="guest.phone" class="feedback-form__item" type="text" formControlName="phone" placeholder="Телефон"></p>
+    <div *ngIf="_phone?.invalid && (_phone?.touched || _phone?.dirty)" class="feedback-form__error">
+      <span *ngIf="_phone?.errors?.required">Обязательное поле</span>
+      <span *ngIf="_phone?.errors?.pattern">
+        Номер телефона должен быть в формате +7ХХХХХХХХХХ
+      </span>
+    </div>
+    <p><input [(ngModel)]="guest.email" class="feedback-form__item" type="email" formControlName="email" placeholder="Почта"></p>
+    <div *ngIf="_email?.invalid && (_email?.touched || _email?.dirty)" class="feedback-form__error">
+      <span *ngIf="_email?.errors?.required">Обязательное поле</span>
+      <span *ngIf="_email?.errors?.pattern">
+        E-mail должен быть в формате example@gmail.ru
+      </span>
+    </div>
+    <p><input class="feedback-form__btn" type="submit" value="Отправить" (click)="onSave()"></p>
   </form>
 </div>

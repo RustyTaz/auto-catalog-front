@@ -8,6 +8,7 @@ import {CatalogModule} from "./catalog/catalog.module";
 import {HistoryModule} from "./history/history.module";
 import {MainModule} from "./main/main.module";
 import {NewsModule} from "./news/news.module";
+import {UserFeedbackModule} from "./user-feedback/user-feedback.module";
 
 import {HttpClientModule} from "@angular/common/http";
 import {NewsApiService} from "./services/news-api.service";
@@ -24,6 +25,7 @@ import {MatDialogModule} from "@angular/material/dialog";
     CatalogModule,
     HistoryModule,
     MainModule,
+    UserFeedbackModule,
     NewsModule,
     HttpClientModule,
     BrowserAnimationsModule,
