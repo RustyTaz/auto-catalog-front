@@ -1,4 +1,7 @@
-<p class="title">{{car.model}}</p>
+<div class="title">
+  <p class="title__text">{{car.model}}</p>
+  <input class="title__close" type="image" src="assets/close.png" (click)="onClose()">
+</div>
 <div class="info">
   <div class="info__text">
     <p>Предельная скорость: {{car.max_speed}} км/ч</p>

@@ -42,7 +42,7 @@
         <img class="main__catalog-item__img" src="assets/{{car.model}}.jpg" alt="Автомобиль каталога">
         <p class="title-catalog-item">{{car.model}}</p>
         <p>Предельная скорость {{car.max_speed}} км/ч</p>
-        <div class="main__catalog-item__text" [routerLink]="['../model/model-page', car.id]">
+        <div class="main__catalog-item__text" (click)="openModalCar(car.id)">
           <img src="assets/allow-right.png" alt="Стрелка вправо">
           <p>Подробнее о модели</p>
         </div>

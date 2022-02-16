@@ -4,6 +4,7 @@ import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {Guest} from "../../domain/guest";
 import {HttpService} from "../../services/http.service";
 import {MatSnackBar} from "@angular/material/snack-bar";
+import {MatTooltip} from "@angular/material/tooltip";
 
 @Component({
   selector: 'app-feedback-form',
@@ -66,14 +67,23 @@ export class FeedbackFormComponent implements OnInit {
     return this.feedbackForm.get('email');
   }
 
-  onSave() {
-    if(this.feedbackForm.valid) {
-      this.httpService.createGuest(this.guest).subscribe();
-      this.feedbackForm.reset();
-      this.snackBar.open("Спасибо за обратную связь", "×", {
-        verticalPosition: "top",
-        horizontalPosition: "center",
+  onSave(lastname: MatTooltip, firstname: MatTooltip, phone: MatTooltip, email: MatTooltip) {
+    if (this._lastname?.invalid) {
+      lastname.show();
+    } if (this._firstname?.invalid) {
+      firstname.show();
+    } if (this._phone?.invalid) {
+      phone.show();
+    } if (this._email?.invalid) {
+      email.show();
+    } if (this.feedbackForm.valid) {
+      this.httpService.createGuest(this.guest).subscribe(() => {
+        this.snackBar.open("Спасибо за обратную связь", "×", {
+          verticalPosition: "top",
+          horizontalPosition: "center",
+        });
       });
+      this.dialogRef.close();
     }
   }
 
