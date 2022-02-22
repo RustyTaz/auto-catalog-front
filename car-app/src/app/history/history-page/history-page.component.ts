@@ -12,4 +12,10 @@ export class HistoryPageComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  showInfo() {
+    let car = document.getElementById('bmw_info');
+    if(car) {
+      car.style.display = "block";
+    }
+  }
 }

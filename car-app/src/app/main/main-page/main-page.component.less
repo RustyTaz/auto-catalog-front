@@ -23,17 +23,20 @@ p {
   .main__title();
   font-size: 15px;
   padding-top: 60px;
+  text-align: center;
 }
 
 .info {
   display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
   background-color: black;
   min-height: 308px;
   width: auto;
   &__item {
     text-align: center;
     padding: 30px 20px 0;
-    width: 25%;
+    width: 20%;
     &-title {
       font-weight: bold;
       font-size: 30px;

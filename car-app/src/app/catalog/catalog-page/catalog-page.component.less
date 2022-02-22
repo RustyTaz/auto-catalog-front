@@ -6,7 +6,27 @@ p {
 }
 
 input {
+  display: none;
+}
+
+span {
+  height: 8px;
+  width: 8px;
+  display: inline-block;
+  position: relative;
+  background-color: #FFF;
+  border-radius: 2px;
+  padding: 3px;
+  margin-right: 5px;
   cursor: pointer;
+}
+[type=checkbox]:checked + span:before {
+  content: '\2714';
+  position: absolute;
+  top: -6px;
+  left: 0;
+  font-size: 20px;
+  color: black;
 }
 
 .title {
@@ -22,7 +42,11 @@ input {
   padding: 5px 0 0 5%;
   display: flex;
   &__checkbox {
-    width: 15%;
+    height: 90%;
+    padding: 20px;
+    margin-top: 30px;
+    background: darkgrey;
+    border-radius: 5px;
     &-item {
       display: block;
       padding-bottom: 5px;
@@ -31,7 +55,22 @@ input {
       text-align: left;
       font-weight: bold;
       font-size: 17px;
-      padding: 30px 0 20px;
+      padding: 10px 0 10px;
+    }
+    &-but {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      &__item {
+        border-radius: 3px;
+        background-color: black;
+        color: white;
+        font-weight: bold;
+        margin: 10px 10px 0 0;
+        padding: 5px;
+        cursor: pointer;
+        width: 95px;
+      }
     }
   }
   &__catalog {

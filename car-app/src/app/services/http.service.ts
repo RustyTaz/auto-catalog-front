@@ -20,4 +20,8 @@ export class HttpService{
   createGuest(guest: Guest): Observable<Guest> {
     return this.http.post<Guest>('http://localhost:8080/api/guest', guest)
   }
+
+  deleteCar(id: number): Observable<Car> {
+    return this.http.delete<Car>('http://localhost:8080/api/car/' + id)
+  }
 }

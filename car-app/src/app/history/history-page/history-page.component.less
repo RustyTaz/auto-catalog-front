@@ -1,93 +1,89 @@
-body{
-  font-family: Roboto, serif;
+@grey: #C6C6C6;
+@orange: #FF4A32;
+
+a {
+  color: black;
+  font-weight: bold;
+  text-decoration: none;
 }
-.navigation__bar{
-  background: #C6C6C6;
+
+img {
+  flex-shrink: 0;
+}
+
+hr {
+  margin-top: 20px;
+  width: 20%;
+  text-align: center;
+}
+
+.header {
   display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 81px;
-  &__button{
-    font-family: Roboto, serif;
-    font-size: 18px;
-    font-weight: bolder;
-    background: inherit;
-    height: 25%;
-    border: none;
-    margin-left: 20px;
-    cursor: pointer;
+  flex-wrap: wrap;
+  background: @grey;
+  justify-content: space-evenly;
+  padding: 15px;
+}
+
+.main {
+  &__title {
+    display: flex;
+    justify-content: center;
+    background: black;
+    padding: 10px 10px 5px;
+    &-text {
+      color: white;
+      font-size: 22px;
+      padding: 5px 10px 0 0;
+    }
+  }
+  &__info {
+    &-img {
+      float: left;
+      width: 50%;
+      margin-right: 30px;
+    }
+    &-text {
+      padding: 30px 30px 0;
+    }
   }
 }
-input[type=radio] {
-  display: none;
-}
-#overflow{ /*сркывает все, что находится за пределами этого блока*/
-  width: 100%;
-  overflow: hidden;
-}
-#slider .image{ /*устанавливает общий размер блока с изображениями*/
-  width: 400%;
-}
-#slider article{ /*все изображения справа друг от друга*/
-  width: 25%;
-  float: left;
-}
-.firm-history{
-  display: flex;
-}
-.firm-history p {
-  padding: 0 20px 0 20px;
-  font-size: 18px;
-}
-.logo{
-  background: black;
-  height: 81px;
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.logo p {
-  font-size: 38px;
-  color:white;
-  margin-right: 5px;
+
+.indent {
+  clear: both;
 }
 
-.logo img:nth-of-type(1){
-  margin-top: 10px;
+.detail {
+  &__text {
+    display: flex;
+    justify-content: center;
+    &-img {
+      height: 15px;
+      padding-top: 2px;
+      transform: rotate(90deg);
+    }
+    &-plain {
+      cursor: pointer;
+      &:hover {
+        color: @orange;
+      }
+    }
+    &-hidden {
+      display: none;
+      cursor: pointer;
+      &:hover {
+        color: @orange;
+      }
+    }
+  }
+  &__info {
+    display: none;
+    padding-left: 30px;
+    &-img {
+      float: right;
+      width: 50%;
+      margin-left: 30px;
+    }
+  }
 }
 
-
-
-/*позиция изображения при активации переключателя*/
-#button-1:checked ~ #slider #overflow .image{
-  margin-left: 0;
-}
-
-#button-2:checked ~ #slider #overflow .image{
-  margin-left: -100%;
-}
-
-#button-3:checked ~ #slider #overflow .image{
-  margin-left: -200%;
-}
-
-#button-4:checked ~ #slider #overflow .image{
-  margin-left: -300%;
-}
-#button-1:focus{
-  color: white;
-}
-#button-2:focus{
-  color: white;
-}
-#button-3:focus{
-  color: white;
-}
-#button-4:focus{
-  color: white;
-}
-
-#slider .image{ /*анимация пролистывания изображений*/
-  transition: all 800ms cubic-bezier(0.770, 0.000, 0.175, 1.000);
-}
