@@ -15,8 +15,6 @@ export class NewsPageComponent implements OnInit {
     this.apiService.getNews().subscribe((result)=>{
       console.log(result);
       this.newsDisplay=result.articles;
-
-
     });
 
   }
