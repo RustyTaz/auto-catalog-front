@@ -6,10 +6,22 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./admin-page.component.less']
 })
 export class AdminPageComponent implements OnInit {
-
-  constructor() { }
+  access:boolean;
+  token:any;
+  constructor() {
+    this.access=false;
+    this.token=localStorage.getItem("auth_token");
+    console.log(this.token)
+  }
 
   ngOnInit(): void {
+    if(this.token !== null){
+      this.access=!this.access;
+    }
+  }
+  ngOnDestroy(){
+    localStorage.clear();
+    this.access=false;
   }
 
 }
