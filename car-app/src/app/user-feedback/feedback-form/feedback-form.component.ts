@@ -5,12 +5,20 @@ import {Guest} from "../../domain/guest";
 import {HttpService} from "../../services/http.service";
 import {MatSnackBar} from "@angular/material/snack-bar";
 import {MatTooltip} from "@angular/material/tooltip";
+import {MAT_TOOLTIP_DEFAULT_OPTIONS, MatTooltipDefaultOptions} from '@angular/material/tooltip';
+
+export const customTooltip: MatTooltipDefaultOptions = {
+  showDelay: 1000,
+  hideDelay: 50,
+  touchendHideDelay: 1000,
+  position: "right"
+};
 
 @Component({
   selector: 'app-feedback-form',
   templateUrl: './feedback-form.component.html',
   styleUrls: ['./feedback-form.component.less'],
-  providers: [HttpService, MatSnackBar]
+  providers: [HttpService, MatSnackBar, {provide: MAT_TOOLTIP_DEFAULT_OPTIONS, useValue: customTooltip}]
 })
 export class FeedbackFormComponent implements OnInit {
 

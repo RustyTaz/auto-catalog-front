@@ -13,7 +13,7 @@ img {
 
 hr {
   margin-top: 20px;
-  width: 20%;
+  width: 15%;
   text-align: center;
 }
 
@@ -55,29 +55,16 @@ hr {
 
 .detail {
   &__text {
-    display: flex;
-    justify-content: center;
-    &-img {
-      height: 15px;
-      padding-top: 2px;
-      transform: rotate(90deg);
-    }
-    &-plain {
-      cursor: pointer;
-      &:hover {
-        color: @orange;
-      }
-    }
-    &-hidden {
-      display: none;
-      cursor: pointer;
-      &:hover {
-        color: @orange;
-      }
+    cursor: pointer;
+    text-align: center;
+    &:hover {
+      color: @orange;
     }
   }
   &__info {
-    display: none;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.2s ease-out;
     padding-left: 30px;
     &-img {
       float: right;
