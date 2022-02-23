@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { HttpService } from "../../services/http.service";
+import {Component, EventEmitter, Inject, OnInit, Output} from '@angular/core';
+import {HttpService} from "../../services/http.service";
 import {Car} from "../../domain/car";
 import {MatDialog} from "@angular/material/dialog";
 import {ModelPageComponent} from "../../model/model-page/model-page.component";
@@ -17,9 +17,17 @@ export class CatalogPageComponent implements OnInit {
   chooseMaxSpeed: number[] = [];
   activeFilter!: boolean;
 
-  constructor(private httpService: HttpService, public dialog: MatDialog) { }
+  constructor(private httpService: HttpService, public dialog: MatDialog) {
+  }
 
   ngOnInit(): void {
+    this.httpService.getAllCars().subscribe(data => {
+      this.cars = data;
+    });
+  }
+
+  //(deleteCar)="refreshCars()"
+  refreshCars() {
     this.httpService.getAllCars().subscribe(data => {
       this.cars = data;
     });
@@ -89,10 +97,11 @@ export class CatalogPageComponent implements OnInit {
 
   openModalCar(id: number): void {
     const dialogRef = this.dialog.open(ModelPageComponent, {
-      data: { id: id},
+      data: {id: id},
       width: '370px',
       height: '465px'
     })
     dialogRef.afterClosed().subscribe();
+
   }
 }

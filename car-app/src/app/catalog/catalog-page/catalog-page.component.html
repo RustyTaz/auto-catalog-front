@@ -1,4 +1,4 @@
-<p class="title">Модельный ряд</p>
+<p class="title" >Модельный ряд</p>
 <div class="main">
   <div class="main__checkbox">
     <p class="main__checkbox-title">Название бренда</p>
@@ -48,13 +48,14 @@
       <button class="main__checkbox-but__item" (click)="resetFilter()">Сбросить</button>
     </div>
   </div>
-  <div class="main__catalog">
+
+  <div class="main__catalog" >
     <ng-container *ngFor="let car of cars">
       <div class="main__catalog-item" *ngIf="checkMaxSpeed(car.max_speed)&&checkBrand(car.model)">
         <img class="main__catalog-item__img" src="assets/{{car.model}}.jpg" alt="Автомобиль каталога">
         <p class="title-catalog-item">{{car.model}}</p>
         <p>Предельная скорость {{car.max_speed}} км/ч</p>
-        <div class="main__catalog-item__text" (click)="openModalCar(car.id)">
+        <div class="main__catalog-item__text"   (deleteCar)="refreshCars()" (click)="openModalCar(car.id)">
           <img src="assets/allow-right.png" alt="Стрелка вправо">
           <p>Подробнее о модели</p>
         </div>
@@ -62,3 +63,5 @@
     </ng-container>
   </div>
 </div>
+
+

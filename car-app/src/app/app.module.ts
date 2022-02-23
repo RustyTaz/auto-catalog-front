@@ -16,25 +16,32 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatDialogModule} from "@angular/material/dialog";
 import {AdminModule} from "./admin/admin.module";
 import {MatButtonModule} from "@angular/material/button";
+import {MatIconModule} from "@angular/material/icon";
+import {MatFormFieldModule} from "@angular/material/form-field";
+import {ModelModule} from "./model/model.module";
 
 @NgModule({
   declarations: [
     AppComponent
   ],
-    imports: [
-        BrowserModule,
-        AppRoutingModule,
-        CatalogModule,
-        HistoryModule,
-        MainModule,
-        UserFeedbackModule,
-        NewsModule,
-        HttpClientModule,
-        BrowserAnimationsModule,
-        MatDialogModule,
-        AdminModule,
-        MatButtonModule
-    ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    CatalogModule,
+    HistoryModule,
+    MainModule,
+    UserFeedbackModule,
+    NewsModule,
+    HttpClientModule,
+    BrowserAnimationsModule,
+    MatDialogModule,
+    AdminModule,
+    MatButtonModule,
+    MatIconModule,
+    MatFormFieldModule,
+    BrowserModule,
+    ModelModule
+  ],
   providers: [NewsApiService],
   bootstrap: [AppComponent]
 })

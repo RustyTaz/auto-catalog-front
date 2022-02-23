@@ -1,4 +1,4 @@
-<header>
+<header class="header">
   <nav class="header__nav">
     <a routerLink="">
       <img src="assets/main-logo.png" alt="Логотип">
@@ -6,9 +6,13 @@
     <a routerLink="catalog" class="header__item">КАТАЛОГ</a>
     <a routerLink="history" class="header__item">ИСТОРИЯ БРЕНДОВ</a>
     <a routerLink="news" class="header__item">АВТОМОБИЛЬНЫЕ НОВОСТИ</a>
-
+    <button class="login-button" mat-stroked-button *ngIf="!login" (click)="openModalLogin()">
+      <mat-icon matSuffix>perm_identity</mat-icon>
+    </button>
+    <button class="login-button" *ngIf="login" mat-stroked-button>
+      <mat-icon matSuffix>exit_to_app</mat-icon>
+    </button>
   </nav>
-  <button mat-stroked-button>Basic</button>
 </header>
 
 
@@ -27,7 +31,6 @@
       <li class="footer__item-title">Информация</li>
       <li class="footer__item-btn" (click)="openModalDevInfo()">О разработчиках</li>
       <li class="footer__item-btn" (click)="openModalFeedback()">Связаться с нами</li>
-      <li class="footer__item-btn" (click)="openModalLogin()">Войти администратору</li>
     </ul>
   </div>
   <div class="footer__item">

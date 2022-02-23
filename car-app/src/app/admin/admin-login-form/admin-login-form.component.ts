@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
-
+import {MatFormFieldModule} from '@angular/material/form-field';
 import {AuthService} from "../../services/auth.service";
 import {MatDialogRef} from "@angular/material/dialog";
+
 
 @Component({
   selector: 'app-admin-login-form',
@@ -37,7 +38,13 @@ export class AdminLoginFormComponent implements OnInit {
   loginAdmin() {
     let {login,password}=this.loginAdminForm.value;
     console.log(login,password);
-    this.authService.login(login,password);
+    try {
+      this.authService.login(login,password);
+    }catch (e){
+      console.log(e)
+    }
+
+
     this.dialogRef.close()
 
   }

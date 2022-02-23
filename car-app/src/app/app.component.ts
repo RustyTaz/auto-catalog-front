@@ -12,8 +12,13 @@ import {AdminLoginFormComponent} from "./admin/admin-login-form/admin-login-form
 })
 export class AppComponent {
   title = 'car-app';
+  login:boolean;
+  token:any;
 
   constructor(public dialog: MatDialog) {
+    this.token=localStorage.getItem("auth-token")
+    this.login=false;
+
   }
 
   openModalDevInfo(): void {
@@ -32,11 +37,18 @@ export class AppComponent {
   }
 
   openModalLogin(): void {
+
     const dialogRef = this.dialog.open(AdminLoginFormComponent, {
       width: '400px',
-      height: '290px'
+      height: '320px'
     })
     dialogRef.afterClosed().subscribe();
+    if(this.token!==null){
+      this.login=true;
+    }else {
+      this.login=false;
+    }
+
   }
 
 
