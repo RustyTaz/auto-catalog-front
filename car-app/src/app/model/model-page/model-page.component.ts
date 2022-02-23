@@ -36,7 +36,6 @@ export class ModelPageComponent implements OnInit {
   deleteCar() {
     this.httpService.deleteCar(this.id).subscribe(() => {
       this.dialogRef.close();
-
     });
   }
 }

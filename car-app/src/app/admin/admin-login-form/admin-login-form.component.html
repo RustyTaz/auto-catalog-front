@@ -1,1 +1,25 @@
-<p>admin-login-form works!</p>
+<div class="login-admin-form">
+  <div class="login-admin-form__title">
+    <p>Авторизация админа</p>
+  </div>
+  <form [formGroup]="loginAdminForm" novalidate>
+    <p>
+      <mat-form-field appearance="fill">
+        <mat-label>Login</mat-label>
+        <input matInput type="text" formControlName="login">
+      </mat-form-field>
+    </p>
+
+    <p>
+      <mat-form-field appearance="fill">
+        <mat-label>Enter your password</mat-label>
+        <input matInput [type]="hide ? 'password' : 'text'" formControlName="password">
+        <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+                [attr.aria-pressed]="hide">
+          <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+        </button>
+      </mat-form-field>
+    </p>
+    <p><input mat-button class="feedback-form__btn" type="submit" value="Отправить" (click)="loginAdmin()"></p>
+  </form>
+</div>

@@ -14,23 +14,27 @@ import {HttpClientModule} from "@angular/common/http";
 import {NewsApiService} from "./services/news-api.service";
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatDialogModule} from "@angular/material/dialog";
+import {AdminModule} from "./admin/admin.module";
+import {MatButtonModule} from "@angular/material/button";
 
 @NgModule({
   declarations: [
     AppComponent
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    CatalogModule,
-    HistoryModule,
-    MainModule,
-    UserFeedbackModule,
-    NewsModule,
-    HttpClientModule,
-    BrowserAnimationsModule,
-    MatDialogModule
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        CatalogModule,
+        HistoryModule,
+        MainModule,
+        UserFeedbackModule,
+        NewsModule,
+        HttpClientModule,
+        BrowserAnimationsModule,
+        MatDialogModule,
+        AdminModule,
+        MatButtonModule
+    ],
   providers: [NewsApiService],
   bootstrap: [AppComponent]
 })

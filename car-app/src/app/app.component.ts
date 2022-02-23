@@ -33,8 +33,8 @@ export class AppComponent {
 
   openModalLogin(): void {
     const dialogRef = this.dialog.open(AdminLoginFormComponent, {
-      width: '300px',
-      height: '410px'
+      width: '400px',
+      height: '290px'
     })
     dialogRef.afterClosed().subscribe();
   }

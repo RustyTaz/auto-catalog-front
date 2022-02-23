@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import {FormControl, FormGroup, Validators} from "@angular/forms";
+
+import {AuthService} from "../../services/auth.service";
+import {MatDialogRef} from "@angular/material/dialog";
 
 @Component({
   selector: 'app-admin-login-form',
@@ -7,9 +11,34 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AdminLoginFormComponent implements OnInit {
 
-  constructor() { }
+  loginAdminForm!: FormGroup;
+  hide: boolean;
+
+
+  constructor(private authService: AuthService,private dialogRef: MatDialogRef<AdminLoginFormComponent>) {
+    this._createForm()
+
+    this.hide=true;
+  }
+
+  private _createForm() {
+    this.loginAdminForm = new FormGroup({
+      login: new FormControl([],[Validators.required]),
+      password: new FormControl([],[Validators.required]),
+    })
+
+  }
 
   ngOnInit(): void {
   }
 
+
+
+  loginAdmin() {
+    let {login,password}=this.loginAdminForm.value;
+    console.log(login,password);
+    this.authService.login(login,password);
+    this.dialogRef.close()
+
+  }
 }

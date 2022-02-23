@@ -7,21 +7,29 @@ import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatIconModule} from "@angular/material/icon";
 import {MatButtonModule} from "@angular/material/button";
 import {MatInputModule} from "@angular/material/input";
+import {MatTabsModule} from "@angular/material/tabs";
+import { GuestListComponent } from './guest-list/guest-list.component';
+import {MatTableModule} from "@angular/material/table";
+import {CatalogModule} from "../catalog/catalog.module";
 
 
 
 @NgModule({
   declarations: [
     AdminPageComponent,
-    AdminLoginFormComponent
+    AdminLoginFormComponent,
+    GuestListComponent
   ],
-  imports: [
-    CommonModule,
-    ReactiveFormsModule,
-    MatFormFieldModule,
-    MatIconModule,
-    MatButtonModule,
-    MatInputModule
-  ]
+    imports: [
+        CommonModule,
+        ReactiveFormsModule,
+        MatFormFieldModule,
+        MatIconModule,
+        MatButtonModule,
+        MatInputModule,
+        MatTabsModule,
+        MatTableModule,
+        CatalogModule
+    ]
 })
 export class AdminModule { }
