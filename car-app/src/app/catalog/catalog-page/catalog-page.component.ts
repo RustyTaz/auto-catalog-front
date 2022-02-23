@@ -13,7 +13,9 @@ import {ModelPageComponent} from "../../model/model-page/model-page.component";
 export class CatalogPageComponent implements OnInit {
 
   cars: Car[] = [];
+  backupChooseBrand: number[] = [];
   chooseBrand: number[] = [];
+  backupChooseMaxSpeed: number[] = [];
   chooseMaxSpeed: number[] = [];
   activeFilter!: boolean;
 
@@ -26,6 +28,8 @@ export class CatalogPageComponent implements OnInit {
   }
 
   applyFilter() {
+    this.chooseBrand = this.backupChooseBrand.slice();
+    this.chooseMaxSpeed = this.backupChooseMaxSpeed.slice();
     this.activeFilter = true;
   }
 
@@ -34,23 +38,23 @@ export class CatalogPageComponent implements OnInit {
     for (let i = 0; i < resetInput.length; i++) {
       resetInput[i].checked = false;
     }
-    this.chooseBrand = [];
-    this.chooseMaxSpeed = [];
+    this.backupChooseBrand = [];
+    this.backupChooseMaxSpeed = [];
     this.activeFilter = false;
   }
 
   choiceBrand(value: number) {
-    if (!this.chooseBrand.includes(value)) {
-      this.chooseBrand.push(value);
-    } else this.chooseBrand = this.chooseBrand.filter((item) => {
+    if (!this.backupChooseBrand.includes(value)) {
+      this.backupChooseBrand.push(value);
+    } else this.backupChooseBrand = this.backupChooseBrand.filter((item) => {
       return item !== value;
     })
   }
 
   choiceMaxSpeed(value: number) {
-    if (!this.chooseMaxSpeed.includes(value)) {
-      this.chooseMaxSpeed.push(value);
-    } else this.chooseMaxSpeed = this.chooseMaxSpeed.filter((item) => {
+    if (!this.backupChooseMaxSpeed.includes(value)) {
+      this.backupChooseMaxSpeed.push(value);
+    } else this.backupChooseMaxSpeed = this.backupChooseMaxSpeed.filter((item) => {
       return item !== value;
     })
   }
