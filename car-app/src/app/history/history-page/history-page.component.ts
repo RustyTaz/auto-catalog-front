@@ -23,10 +23,4 @@ export class HistoryPageComponent implements OnInit {
       });
     }
   }
-/*  showInfo() {
-    let car = document.getElementById('bmw_info');
-    if(car) {
-      car.style.display = "block";
-    }
-  }*/
 }

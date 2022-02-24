@@ -1,4 +1,4 @@
-<p class="title" >Модельный ряд</p>
+<p class="title" *ngIf="!access">Модельный ряд</p>
 <div class="main">
   <div class="main__checkbox">
     <p class="main__checkbox-title">Название бренда</p>
@@ -62,6 +62,9 @@
       </div>
     </ng-container>
   </div>
+</div>
+<div class="footer ">
+  <img *ngIf="access" class="footer__but" src="assets/plus.png" alt="Добавить">
 </div>
 
 

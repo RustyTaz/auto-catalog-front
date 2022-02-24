@@ -1,7 +1,3 @@
-<h2>
-  Список клиентов
-</h2>
-
 <table mat-table [dataSource]="guests" class="mat-elevation-z8 demo-table">
   <ng-container *ngFor="let column of columns" [matColumnDef]="column.columnDef">
     <th mat-header-cell *matHeaderCellDef>

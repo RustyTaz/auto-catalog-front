@@ -18,6 +18,8 @@ export class CatalogPageComponent implements OnInit {
   backupChooseMaxSpeed: number[] = [];
   chooseMaxSpeed: number[] = [];
   activeFilter!: boolean;
+  token: any;
+  access: boolean = false;
 
   constructor(private httpService: HttpService, public dialog: MatDialog) {
   }
@@ -26,9 +28,12 @@ export class CatalogPageComponent implements OnInit {
     this.httpService.getAllCars().subscribe(data => {
       this.cars = data;
     });
+    this.token = localStorage.getItem("auth_token");
+    if (this.token !== null) {
+      this.access = true;
+    }
   }
 
-  //(deleteCar)="refreshCars()"
   refreshCars() {
     this.httpService.getAllCars().subscribe(data => {
       this.cars = data;
@@ -106,6 +111,13 @@ export class CatalogPageComponent implements OnInit {
       height: '465px'
     })
     dialogRef.afterClosed().subscribe();
+  }
 
+  openModalAddCar() {
+    const dialogRef = this.dialog.open(ModelPageComponent, {
+      width: '400px',
+      height: '500px'
+    })
+    dialogRef.afterClosed().subscribe();
   }
 }
