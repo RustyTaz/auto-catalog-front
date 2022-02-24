@@ -3,6 +3,7 @@ import {ActivatedRoute} from "@angular/router";
 import {Car} from "../../domain/car";
 import {HttpService} from "../../services/http.service";
 import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material/dialog';
+import {Observable} from "rxjs";
 
 @Component({
   selector: 'app-model-page',
@@ -16,7 +17,8 @@ export class ModelPageComponent implements OnInit {
   car!: Car;
   access: boolean = false;
   token: any;
-  @Output() refreshCars = new EventEmitter();
+  cars: Observable<Car[]> | undefined;
+  //@Output() refreshCars = new EventEmitter();
 
   constructor(private route: ActivatedRoute, private httpService: HttpService,
               @Inject(MAT_DIALOG_DATA) public data: { id: number },
@@ -43,8 +45,8 @@ export class ModelPageComponent implements OnInit {
 
   deleteCar() {
     this.httpService.deleteCar(this.id).subscribe(() => {
-      this.dialogRef.close();
-      this.refreshCars.emit();
+      //this.refreshCars.emit();
     });
+    this.dialogRef.close();
   }
 }

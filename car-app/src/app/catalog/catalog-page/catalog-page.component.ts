@@ -34,6 +34,7 @@ export class CatalogPageComponent implements OnInit {
     }
   }
 
+  //(deleteCar)="refreshCars()"
   refreshCars() {
     this.httpService.getAllCars().subscribe(data => {
       this.cars = data;
@@ -110,7 +111,9 @@ export class CatalogPageComponent implements OnInit {
       width: '370px',
       height: '465px'
     })
-    dialogRef.afterClosed().subscribe();
+    dialogRef.afterClosed().subscribe(()=>
+    this.refreshCars()
+    );
   }
 
   openModalAddCar() {

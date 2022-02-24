@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {LoginButtonService} from "../../services/login-button.service";
+import {AuthService} from "../../services/auth.service";
 
 @Component({
   selector: 'app-admin-page',
@@ -8,7 +10,7 @@ import { Component, OnInit } from '@angular/core';
 export class AdminPageComponent implements OnInit {
   access:boolean;
   token:any;
-  constructor() {
+  constructor( private loginButton: LoginButtonService, private authService: AuthService) {
     this.access=false;
     this.token=localStorage.getItem("auth_token");
     console.log(this.token)
@@ -18,10 +20,13 @@ export class AdminPageComponent implements OnInit {
     if(this.token !== null){
       this.access=!this.access;
     }
+    this.loginButton.changeButton(this.access);
   }
+
   ngOnDestroy(){
-    localStorage.clear();
+    this.authService.logout();
     this.access=false;
+    this.loginButton.changeButton(this.access);
   }
 
 }

@@ -3,6 +3,8 @@ import {MatDialog} from "@angular/material/dialog";
 import {FeedbackFormComponent} from "./user-feedback/feedback-form/feedback-form.component";
 import {DevInfoComponent} from "./footer/dev-info/dev-info.component";
 import {AdminLoginFormComponent} from "./admin/admin-login-form/admin-login-form.component";
+import {LoginButtonService} from "./services/login-button.service";
+import {AuthService} from "./services/auth.service";
 
 
 @Component({
@@ -12,13 +14,16 @@ import {AdminLoginFormComponent} from "./admin/admin-login-form/admin-login-form
 })
 export class AppComponent {
   title = 'car-app';
-  login:boolean;
+  access:boolean;
   token:any;
 
-  constructor(public dialog: MatDialog) {
+  constructor(public dialog: MatDialog,private loginButton: LoginButtonService, private authService: AuthService) {
     this.token=localStorage.getItem("auth-token")
-    this.login=false;
+    this.access=false;
+  }
 
+  ngOnInit(): void {
+    this.loginButton.log$.subscribe((access)=>this.access=access);
   }
 
   openModalDevInfo(): void {
@@ -43,13 +48,13 @@ export class AppComponent {
       height: '320px'
     })
     dialogRef.afterClosed().subscribe();
-    if(this.token!==null){
-      this.login=true;
-    }else {
-      this.login=false;
-    }
 
   }
 
 
+  logoutAdmin() {
+    this.authService.logout();
+    this.access=false;
+    this.loginButton.log$.subscribe((access)=>this.access=access);
+  }
 }
